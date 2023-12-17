@@ -7,6 +7,7 @@ from _secrets import username, password
 
 options = Options()
 options.set_preference("media.eme.enabled", True)
+options.set_preference("media.gmp-manager.updateEnabled", True)
 driver = webdriver.Firefox(options=options)  # expecting this to be in local repo
 driver.get('https://open.spotify.com/track/0WSEq9Ko4kFPt8yo3ICd6T?si=e2c993506d17435b&nd=1')
 driver.implicitly_wait(5)
