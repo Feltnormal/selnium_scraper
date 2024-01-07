@@ -10,6 +10,7 @@ from _secrets import username, password
 from multiprocessing import Pool, current_process
 from multiprocessing import freeze_support
 
+logging.basicConfig(level=logging.DEBUG)
 
 options = Options()
 options.profile = FirefoxProfile("vtb1cawa.sel_user")
@@ -33,8 +34,8 @@ def stream(user_creds: str):
     WebDriverWait(driver, 20).until(EC.element_to_be_clickable(
         (By.CSS_SELECTOR, ".LKFFk88SIRC9QKKUWR5u > button:nth-child(2)"))).click()
 
-    driver.find_element("id", "login-username").send_keys(username_key)
-    driver.find_element("id", "login-password").send_keys(password_key)
+    WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, "login-username"))).send_keys(username_key)
+    WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, "login-password"))).send_keys(password_key)
     WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, "login-button"))).click()
 
     driver.implicitly_wait(5)
