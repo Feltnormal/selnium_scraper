@@ -26,7 +26,8 @@ def run_multistream(func, i, n_processors):
 # TODO: add proxy support
 def stream(user_creds: str):
     username_key = user_creds.split(" ")[0]
-    password_key = user_creds.split(" ")[1]
+    # TODO: make username login an option where account lines are like email | username | password
+    password_key = user_creds.split(" ")[1] if len(set(user_creds.split(" "))) == 2 else list(set(user_creds.split(" ")))[2]
     logging.debug(f"{current_process().name} registering as user: {username_key}")
     driver = webdriver.Firefox(options=options)  # expecting this to be in local repo
     driver.get("https://open.spotify.com/album/4olCvyb2KkdQjNOUJH71y2?si=iPjOBFuSQXSNX54Cbphx2Q")
