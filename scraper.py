@@ -29,7 +29,7 @@ def stream(user_creds: str):
     password_key = user_creds.split(" ")[1]
     logging.debug(f"{current_process().name} registering as user: {username_key}")
     driver = webdriver.Firefox(options=options)  # expecting this to be in local repo
-    driver.get("https://open.spotify.com/album/39hEC3Wb2aJCSpHYGjJ15Y?si=GKACjgF0RLSPij29rcMW8A")
+    driver.get("https://open.spotify.com/album/4olCvyb2KkdQjNOUJH71y2?si=iPjOBFuSQXSNX54Cbphx2Q")
     driver.implicitly_wait(5)
     WebDriverWait(driver, 20).until(EC.element_to_be_clickable(
         (By.CSS_SELECTOR, ".LKFFk88SIRC9QKKUWR5u > button:nth-child(2)"))).click()
